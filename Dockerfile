@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Install system and git dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    uild-essential \
+    build-essential \
     g++ \
     libopenblas-dev \
     liblapack-dev \
