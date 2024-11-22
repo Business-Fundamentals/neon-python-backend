@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libopenblas-dev \
     liblapack-dev \
     git \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Install git-lfs
