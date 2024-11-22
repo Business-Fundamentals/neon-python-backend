@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9-slim
+FROM python:3.13-slim
 
 # Set the working directory in the container
 WORKDIR /app
@@ -10,6 +10,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     liblapack-dev \
     git \
     && rm -rf /var/lib/apt/lists/*
+
+# Install git-lfs
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+    apt-get install -y git-lfs && \
+    git lfs install
 
 # Copy the application files into the container
 COPY . /app
