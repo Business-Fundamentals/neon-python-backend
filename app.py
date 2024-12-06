@@ -61,10 +61,11 @@ class EmbeddingRequest(BaseModel):
 @app.post("/generate-embeddings")
 async def generate_embeddings(request: EmbeddingRequest):
     print("Tenant ID:", request.tenantId)
-    FILE_UPLOAD_PATH = "/Users/businessfundamentals/business_fundamentals/nitrogen-backend/"
+    print("File Path:", request.filePath)
+
     try:
         # Extract text from the file
-        text = extract_text(FILE_UPLOAD_PATH + request.filePath)
+        text = extract_text( request.filePath)
         print("Extracted Text:", text)
 
         # Generate embeddings
