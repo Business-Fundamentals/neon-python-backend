@@ -147,18 +147,20 @@ async def query_database(request: QueryRequest):
 
         # Filter results dynamically
         filtered_results = {
-            "ids": [],
-            "documents": [],
-            "metadatas": [],
-            "distances": [],
+            "ids": results["ids"],
+            "documents": results["documents"],
+            "metadatas": results["metadatas"],
+            "distances": results["distances"],
         }
-        for idx, meta in enumerate(results["metadatas"]):
-            # Ensure meta is valid and handle it as a dictionary
-            if isinstance(meta, dict) and meta.get("tenantId") == request.tenantId:
-                filtered_results["ids"].append(results["ids"][idx])
-                filtered_results["documents"].append(results["documents"][idx])
-                filtered_results["metadatas"].append(meta)
-                filtered_results["distances"].append(results["distances"][idx])
+        
+        # to filter by tenantId - TO FIX
+        # for idx, meta in enumerate(results["metadatas"]):
+        #     # Ensure meta is valid and handle it as a dictionary
+        #     if isinstance(meta, dict) and meta.get("tenantId") == request.tenantId:
+        #         filtered_results["ids"].append(results["ids"][idx])
+        #         filtered_results["documents"].append(results["documents"][idx])
+        #         filtered_results["metadatas"].append(meta)
+        #         filtered_results["distances"].append(results["distances"][idx])
 
         print("Similarity Results (Filtered):", filtered_results)
 
