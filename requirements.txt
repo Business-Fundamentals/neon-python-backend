@@ -12,4 +12,4 @@ python-docx
 openpyxl
 setuptools
 wheel
-spacy[apple]
+spacy
